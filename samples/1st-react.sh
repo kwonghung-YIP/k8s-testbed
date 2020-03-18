@@ -39,14 +39,8 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: test-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  rules:
-  - http:
-      paths:
-      - path: /testpath
-        backend:
-          serviceName: nodejs-service
-          servicePort: 80
+  backend:
+    serviceName: nodejs-service
+    servicePort: 80
 EOF
