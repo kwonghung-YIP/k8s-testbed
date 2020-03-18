@@ -1,18 +1,4 @@
 cat <<EOF | kubectl apply -f -
-apiVersion: v1
-kind: Service
-metadata:
-  name: nodejs-service
-spec:
-  ports:
-    - name: http
-      protocol: TCP
-      port: 80
-      targetPort: http
-EOF
-
-
-cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -48,9 +34,19 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 3000
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: test-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /testpath
+        backend:
+          serviceName: nodejs-service
+          servicePort: 80
 EOF
-
-docker run \
-  -it --rm \
-  -p 3000:3000 \
-  kwonghung/plain-react-app:node_12
