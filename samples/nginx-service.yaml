@@ -75,11 +75,24 @@ spec:
   - route:
     - destination:
         hosts: nginx
-        subset: v117
+        subset: v1.17
       weight: 50
     - destination:
         hosts: nginx
-        subset: v116
+        subset: v1.16
       weight: 50
-  
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRile
+metadata:
+  name: nginx-dest-rule
+spec:
+  host: nginx
+  subsets:
+  - name: v1.17
+    labels:
+      version: v1.17-tls
+  - name: v1.16
+    labels:
+      version: v1.17-tmp
   
