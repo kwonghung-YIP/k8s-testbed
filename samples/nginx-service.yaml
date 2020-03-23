@@ -70,7 +70,8 @@ metadata:
   name: nginx-virtual-service
 spec:
   hosts:
-  - nginx
+  - nginx116svc
+  - nginx117svc
   http:
   - route:
     - destination:
