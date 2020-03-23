@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-1.17-deployment
+  name: nginx-1.17-deploy
   labels:
     app: nginx-1.17-deploy
 spec:
@@ -23,7 +23,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-1.16-deployment
+  name: nginx-1.16-deploy
   labels:
     app: nginx-1.16-deploy
 spec:
@@ -45,7 +45,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-1.17-svc
+  name: nginx117svc
 spec:
   selector:
     app: nginx-1.17-deploy
@@ -56,7 +56,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-1.16-svc
+  name: nginx116svc
 spec:
   selector:
     app: nginx-1.16-deploy
