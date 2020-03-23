@@ -74,12 +74,12 @@ spec:
   http:
   - route:
     - destination:
-      hosts: nginx
-      subset: v117
+        hosts: nginx
+        subset: v117
       weight: 50
     - destination:
-      hosts: nginx
-      subset: v116
+        hosts: nginx
+        subset: v116
       weight: 50
   
   
