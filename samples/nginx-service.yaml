@@ -48,7 +48,7 @@ metadata:
   name: nginx117svc
 spec:
   selector:
-    app: nginx-1.17-deploy
+    app: nginx-1.17
   ports:
   - protocol: TCP
     port: 80
@@ -59,7 +59,7 @@ metadata:
   name: nginx116svc
 spec:
   selector:
-    app: nginx-1.16-deploy
+    app: nginx-1.16
   ports:
   - protocol: TCP
     port: 80
