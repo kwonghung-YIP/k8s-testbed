@@ -89,10 +89,10 @@ metadata:
 spec:
   host: nginx
   subsets:
-  - name: v1_17
+  - name: v117
     labels:
       version: v1.17-tls
-  - name: v1_16
+  - name: v116
     labels:
       version: v1.17-tmp
   
