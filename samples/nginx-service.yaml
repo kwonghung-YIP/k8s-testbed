@@ -67,7 +67,7 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: nginx-virtual-service
+  name: nginx
 spec:
   hosts:
   - nginx116svc.default.svc.cluster.local
