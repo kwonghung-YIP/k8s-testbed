@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nginx-1.17-deployment
   labels:
-    app: nginx-1.17
+    app: nginx-1.17-deploy
 spec:
   replicas: 3
   selector:
@@ -25,7 +25,7 @@ kind: Deployment
 metadata:
   name: nginx-1.16-deployment
   labels:
-    app: nginx-1.16
+    app: nginx-1.16-deploy
 spec:
   replicas: 3
   selector:
@@ -41,3 +41,25 @@ spec:
         image: nginx:1.16
         ports:
         - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-1.17-svc
+spec:
+  selector:
+    app: nginx-1.17-deploy
+  ports:
+  - protocol: TCP
+    port: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-1.16-svc
+spec:
+  selector:
+    app: nginx-1.16-deploy
+  ports:
+  - protocol: TCP
+    port: 80
