@@ -72,7 +72,7 @@ spec:
       number: 80
       protocol: HTTP
     hosts:
-    - nginx.default.svc.cluster.local
+    - "*"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -80,7 +80,7 @@ metadata:
   name: nginx
 spec:
   hosts:
-  - nginx.default.svc.cluster.local
+  - "*"
   gateways:
   - nginx-gateway
   http:
