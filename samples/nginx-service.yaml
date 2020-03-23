@@ -70,8 +70,8 @@ metadata:
   name: nginx-virtual-service
 spec:
   hosts:
-  - nginx116svc
-  - nginx117svc
+  - nginx116svc.default.svc.cluster.local
+  - nginx117svc.default.svc.cluster.local
   http:
   - route:
     - destination:
