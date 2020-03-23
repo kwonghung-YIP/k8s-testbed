@@ -86,11 +86,11 @@ spec:
   http:
   - route:
     - destination:
-        host: nginx
+        host: nginx2
         subset: v117
       weight: 50
     - destination:
-        host: nginx
+        host: nginx3
         subset: v116
       weight: 50
 ---
