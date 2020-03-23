@@ -71,9 +71,11 @@ spec:
     - destination:
         host: nginx
         subset: v117
+      weight: 50
     - destination:
         host: nginx
         subset: v116
+      weight: 50
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
