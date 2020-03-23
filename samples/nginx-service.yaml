@@ -83,7 +83,7 @@ spec:
       weight: 50
 ---
 apiVersion: networking.istio.io/v1alpha3
-kind: DestinationRile
+kind: DestinationRule
 metadata:
   name: nginx-dest-rule
 spec:
