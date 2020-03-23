@@ -86,11 +86,11 @@ spec:
   http:
   - route:
     - destination:
-        host: nginx2
+        host: nginx
         subset: v117
       weight: 50
     - destination:
-        host: nginx3
+        host: nginx
         subset: v116
       weight: 50
 ---
@@ -99,7 +99,7 @@ kind: DestinationRule
 metadata:
   name: nginx-dest-rule
 spec:
-  host: nginx.default.svc.cluster.local
+  host: nginx
   subsets:
   - name: v117
     labels:
