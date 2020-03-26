@@ -14,7 +14,9 @@ spec:
     metadata:
       labels:
         app: tomcat-pod
-        version: v9.1
+        version: v9
+        server: app-server
+        jdk: openjdk-11
     spec:
       containers:
       - name: tomcat
@@ -27,7 +29,7 @@ kind: Service
 metadata:
   name: tomcat-v9-svc
   labels:
-    app: tomcat
+    service: tomcat
     version: v9
 spec:
   selector:
@@ -38,3 +40,7 @@ spec:
     protocol: TCP
     port: 80
     targetPort: 8080
+  - name: https
+    protocol: TCP
+    port: 443
+    targetPort:8443
