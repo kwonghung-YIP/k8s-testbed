@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat-v9-deploy
+  labels:
+    app: tomcat-v9-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tomcat-pod
+      version: v9
+  template:
+    metadata:
+      labels:
+        app: tomcat-pod
+        version: v9
+    spec:
+      containers:
+      - name: tomcat
+        image: tomcat:9
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tomcat-v9-svc
+  labels:
+    app: tomcat
+spec:
+  selector:
+    app: tomcat-pod
+    version: v9
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 8080
