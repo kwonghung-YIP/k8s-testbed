@@ -1,0 +1,29 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: tomcat
+spec:
+  hosts:
+  - tomcat
+  http:
+  - route:
+    - destination:
+        host: tomcat-v9-svc
+      weight: 50
+    - destination:
+        host: tomcat-v85-svc
+      weight: 50
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: tomcat-v9
+spec:
+  host: tomcat-v9-svc
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: tomcat-v8.5
+spec:
+  host: tomcat-v8.5-svc
