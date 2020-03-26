@@ -23,6 +23,7 @@ spec:
         image: tomcat:9
         ports:
         - containerPort: 8080
+        - containerPort: 8443
 ---
 apiVersion: v1
 kind: Service
@@ -43,4 +44,4 @@ spec:
   - name: https
     protocol: TCP
     port: 443
-    targetPort:8443
+    targetPort: 8443
