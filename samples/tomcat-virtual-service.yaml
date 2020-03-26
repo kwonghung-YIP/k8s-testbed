@@ -4,7 +4,9 @@ metadata:
   name: tomcat
 spec:
   hosts:
-  - tomcat
+  - "*"
+  gateways:
+  - tomcat-gateway  
   http:
   - route:
     - destination:
@@ -27,3 +29,18 @@ metadata:
   name: tomcat-v8.5
 spec:
   host: tomcat-v8.5-svc
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: tomcat-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      name: http
+      number: 80
+      protocol: HTTP
+    hosts:
+    - "*"
