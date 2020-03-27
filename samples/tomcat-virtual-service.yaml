@@ -15,7 +15,7 @@ spec:
       weight: 50
     - destination:
         host: tomcat-svc
-        subset: v8.5
+        subset: v85
       weight: 50
 ---
 apiVersion: networking.istio.io/v1alpha3
@@ -29,7 +29,7 @@ spec:
     labels:
       pod: tomcat
       version: v9
-  - name: v8.5
+  - name: v85
     labels:
       pod: tomcat
       version: v8.5
