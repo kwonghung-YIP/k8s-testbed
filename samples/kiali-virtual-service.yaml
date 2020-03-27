@@ -10,7 +10,7 @@ spec:
   - port:
       name: kiali-http
       number: 15029
-      protocols: HTTP
+      protocol: HTTP
     hosts:
     - "kiali.hung.org"
 ---
