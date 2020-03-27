@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat-v9-deploy
+  labels:
+    deploy: tomcat
+    version: v9
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      pod: tomcat
+      version: v9
+  template:
+    metadata:
+      labels:
+        pod: tomcat
+        version: v9
+        server: app-server
+        jdk: openjdk-11
+    spec:
+      containers:
+      - name: tomcat
+        image: tomcat:9
+        ports:
+        - containerPort: 8080
+        - containerPort: 8443
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat-v8.5-deploy
+  labels:
+    deploy: tomcat
+    version: v8.5
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      pod: tomcat
+      version: v8.5
+  template:
+    metadata:
+      labels:
+        pod: tomcat
+        version: v8.5
+        server: app-server
+        jdk: openjdk-11
+    spec:
+      containers:
+      - name: tomcat
+        image: tomcat:8.5
+        ports:
+        - containerPort: 8080
+        - containerPort: 8443
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tomcat-svc
+  labels:
+    service: tomcat
+spec:
+  selector:
+    pod: tomcat
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 8080
+  - name: https
+    protocol: TCP
+    port: 443
+    targetPort: 8443
