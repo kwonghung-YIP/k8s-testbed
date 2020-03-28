@@ -27,11 +27,11 @@ spec:
   http:
   - match:
     - port: 15029
-    - route:
-      - destination:
-          host: kiali
-          port:
-            number: 20001
+    route:
+    - destination:
+        host: kiali
+        port:
+          number: 20001
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
