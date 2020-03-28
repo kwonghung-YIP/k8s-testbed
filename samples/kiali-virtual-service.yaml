@@ -12,7 +12,8 @@ spec:
       number: 15029
       protocol: HTTP
     hosts:
-    - "kiali.hung.org.hk"
+    - "kiali.hung.org.hk:30376"
+      "kiali.hung.org.hk"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -21,7 +22,8 @@ metadata:
   namespace: istio-system
 spec:
   hosts:
-  - "kiali.hung.org.hk"
+  - "kiali.hung.org.hk:30376"
+    "kiali.hung.org.hk"
   gateways:
   - kiali-gateway
   http:
