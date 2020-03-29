@@ -6,7 +6,7 @@ docker run \
   haproxy:2.1
 
 docker run \
-  --name haproxy -d --rm --restart always \
+  --name haproxy -d --restart always \
   --network host \
   -v $PWD/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg \
   haproxy:2.1
