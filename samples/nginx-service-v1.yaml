@@ -19,13 +19,13 @@ spec:
   selector:
     matchLabels:
       app: nginx
-      version: 1.17
+      version: "1.17"
   template:
     metadata:
       labels:
         app: nginx
-        version: 1.17
-        minor-version: 1.17.9
+        version: "1.17"
+        minor-version: "1.17.9"
     spec:
       containers:
       - name: nginx
