@@ -21,8 +21,8 @@ metadata:
   namespace: istio-system
 spec:
   hosts:
-  - "kiali.hung.org.hk"
-  - "kiali.hung.org.hk:30376"
+  - kiali.hung.org.hk
+  - kiali.hung.org.hk:30376
   gateways:
   - kiali-gateway
   http:
