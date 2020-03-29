@@ -82,3 +82,20 @@ spec:
           items:
           - key: echo.txt.v1.16
             path: test.txt
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-svc
+  labels:
+    service: nginx
+spec:
+  selector:
+    app: nginx
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+  - name: https
+    protocol: TCP
+    port: 443
