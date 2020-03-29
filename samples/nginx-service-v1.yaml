@@ -4,8 +4,8 @@ metadata:
   name: nginx-static-files
   namespace: default
 data:
-  echo.txt: |-
-    text="Hello!"
+  echo.txt.new: |-
+    Hello, I'm go to nginx v1.17.9!!!
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -33,3 +33,13 @@ spec:
         ports:
         - containerPort: 80
         - containerPort: 443
+        volumeMounts:
+        - name: echo-txt
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: echo-txt
+        configMap:
+          name: nginx-static-files
+          items:
+          - key: echo.txt.new
+            path: echo.txt
