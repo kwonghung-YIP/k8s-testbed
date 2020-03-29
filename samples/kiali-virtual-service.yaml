@@ -22,6 +22,7 @@ metadata:
 spec:
   hosts:
   - "kiali.hung.org.hk"
+  - "kiali.hung.org.hk:30376"
   gateways:
   - kiali-gateway
   http:
