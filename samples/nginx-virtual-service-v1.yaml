@@ -19,7 +19,7 @@ metadata:
   name: nginx
 spec:
   hosts:
-  - "*"
+  - "nginx.hung.org.hk"
   gateways:
   - nginx-gateway  
   http:
