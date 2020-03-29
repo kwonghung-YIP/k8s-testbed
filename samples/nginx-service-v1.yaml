@@ -5,9 +5,9 @@ metadata:
   namespace: default
 data:
   echo.txt.v1.17: |-
-    Hello, I'm go to nginx v1.17.9!!!
+    Hello, I'm going into nginx v1.17.9!!!
   echo.txt.v1.16: |-
-    Hello, I'm go to nginx v1.16.1!!!
+    Hello, I'm going into nginx v1.16.1!!!
 ---
 apiVersion: apps/v1
 kind: Deployment
