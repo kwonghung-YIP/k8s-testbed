@@ -12,12 +12,6 @@ spec:
       protocol: HTTP
     hosts:
     - "*.hung.org.hk"
-  - port:
-      name: my-http
-      number: 82
-      protocol: HTTP      
-    hosts:
-    - "*.hung.org.hk"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
