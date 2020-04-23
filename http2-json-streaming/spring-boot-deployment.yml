@@ -21,7 +21,7 @@ spec:
         - containerPort: 8080
         - containerPort: 8443
         env:
-        - name: SPRING_ACTIVE_PROFILES
+        - name: spring_profiles_active
           value: "k8s"
 
 
