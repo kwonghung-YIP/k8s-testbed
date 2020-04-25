@@ -5,3 +5,15 @@ metadata:
   namespace: default
 spec:
   selfSigned: {}
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: test-selfsigned
+spec:
+  secretName: test-selfsigned-secret
+  dnsNames:
+  - springboot-http2.hung.org.hk
+  issuerRef:
+    name: selfsigned-issuer
+    kind: Issuer
