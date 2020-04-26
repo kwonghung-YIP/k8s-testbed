@@ -3,10 +3,10 @@ kind: Ingress
 metadata:
   name: spring-http2-ingress
 spec:
-  #tls:
-  #- hosts:
-  #  - springboot-http2.hung.org.hk
-  #  secretName: test-selfsigned-secret
+  tls:
+  - hosts:
+    - springboot-http2.hung.org.hk
+    secretName: test-selfsigned-secret
   rules:
   - host: springboot-http2.hung.org.hk
     http:
