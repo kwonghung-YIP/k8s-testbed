@@ -19,4 +19,8 @@ openssl pkcs12 -export -out my-service.p12 -passout pass:abcd1234 \
   -inkey my-service.key --name my-cert -in my-service.crt \
   -certfile my-rootCA.crt
 
-openssl pkcs12 -nokeys -info -in my-service.p12
+openssl pkcs12 -nokeys -info \
+  -in my-service.p12 -passin pass:abcd1234
+  
+
+
