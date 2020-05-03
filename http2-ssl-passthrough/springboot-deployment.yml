@@ -23,12 +23,19 @@ spec:
         env:
         - name: spring_profiles_active
           value: "k8s"
+        - name: ssl-keystore-credential
+          valueFrom:
+            secretKeyRef:
+              name: my-service-p12
+              key: my-service-p12-cred
         volumeMounts:
         - name: ssl-keystore
-          mountPath: /usr/local/springboot/ssl-keystore.p12
-          subPath: my-service-p12
+          mountPath: /usr/local/springboot
           readOnly: true
       volumes:
       - name: ssl-keystore
         secret:
           secretName: my-service-p12
+          items:
+          - key: my-service-p12
+            path: ssl-keystore.p12
