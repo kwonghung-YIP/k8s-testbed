@@ -22,5 +22,8 @@ openssl pkcs12 -export -out my-service.p12 -passout pass:abcd1234 \
 openssl pkcs12 -nokeys -info \
   -in my-service.p12 -passin pass:abcd1234
   
-
+kubectl create secret \
+  generic my-service-p12 \
+  --from-file=my-service-p12=./my-service.p12 \
+  --from-literal=my-service-p12-cred=abcd1234
 
