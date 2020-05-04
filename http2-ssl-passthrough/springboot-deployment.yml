@@ -23,7 +23,7 @@ spec:
         env:
         - name: spring_profiles_active
           value: "k8s"
-        - name: ssl-keystore-credential
+        - name: ssl_keystore_credential
           valueFrom:
             secretKeyRef:
               name: my-service-p12
