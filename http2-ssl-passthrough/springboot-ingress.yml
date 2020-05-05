@@ -2,6 +2,8 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: spring-http2-ingress
+  annotations:
+    ingress.citrix.com/ssl-passthrough: "True"
 spec:
   tls:
   - hosts:
