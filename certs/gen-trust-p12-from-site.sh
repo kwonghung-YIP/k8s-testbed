@@ -1,5 +1,5 @@
 openssl s_client \
-  -connect apps.e03ext.intra.hksfc.org.hk:443 \
+  -connect localhost:8080 \
   -showcerts -certform PEM \
   </dev/null 2>/dev/null | \
   sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > trust.crt
