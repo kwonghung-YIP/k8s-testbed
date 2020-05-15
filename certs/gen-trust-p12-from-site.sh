@@ -1,5 +1,8 @@
+rm trust.crt trust.p12
+
 openssl s_client \
   -connect localhost:8080 \
+  -CAfile my-rootCA.crt \
   -showcerts -certform PEM \
   </dev/null 2>/dev/null | \
   sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > trust.crt
