@@ -13,11 +13,11 @@ openssl pkcs12 -export \
   
 openssl pkcs12 -in trust.p12 -passin pass:abcd1234 -info
 
-./keytool -import \
+"$JAVA_HOME/bin/keytool" -import \
   -file ~/Documents/certs/selfsigned/ca/my-rootCA.crt \
   -alias my-rootCA \
   -keystore ~/Documents/certs/selfsigned/ca/trust.jks
 
-./keytool -v -list \
+"JAVA_HOME/bin/keytool" -v -list \
   -keystore ~/Documents/certs/selfsigned/ca/trust.jks \
   -storepass abcd1234
