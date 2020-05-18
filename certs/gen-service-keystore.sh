@@ -18,7 +18,8 @@ openssl req -in my-service.csr -text
 openssl x509 -req \
   -in my-service.csr -out my-service.crt -passin pass:abcd1234 \
   -CA my-rootCA.crt -CAkey my-rootCA.key -CAcreateserial \
-  -days 30 -sha256
+  -days 30 -sha256 \
+  -extfile my-service.config -extensions req_ext
 
 openssl x509 -in my-service.crt -text
 
