@@ -9,7 +9,9 @@ openssl req -new \
 openssl req -newkey rsa:2048 \
   -nodes -sha256 -keyout my-service.key \
   -out my-service.csr \
-  -subj '/C=HK/L=Hong Kong/CN=localhost/subjectAltName=DNS.1=localhost'
+  -config my-service.config
+  
+#-subj '/C=HK/L=Hong Kong/CN=localhost/subjectAltName=DNS.1=localhost'
 
 openssl req -in my-service.csr -text
 
