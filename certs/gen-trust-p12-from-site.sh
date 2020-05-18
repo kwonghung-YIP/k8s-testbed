@@ -18,6 +18,6 @@ openssl pkcs12 -in trust.p12 -passin pass:abcd1234 -info
   -alias my-rootCA \
   -keystore ~/Documents/certs/selfsigned/ca/trust.jks
 
-"JAVA_HOME/bin/keytool" -v -list \
+"$JAVA_HOME/bin/keytool" -v -list \
   -keystore ~/Documents/certs/selfsigned/ca/trust.jks \
   -storepass abcd1234
