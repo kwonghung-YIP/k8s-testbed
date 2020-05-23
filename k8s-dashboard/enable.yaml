@@ -17,12 +17,37 @@ subjects:
   name: admin-user
   namespace: kubernetes-dashboard
 ---
+apiVersion: cert-manager.io/v1alpha2
+kind: Issuer
+metadata:
+  name: selfsigned-issuer
+  namespace: kubernetes-dashboard
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: k8s-dashboard-tls
+  namespace: kubernetes-dashboard
+spec:
+  secretName: k8s-dashboard-tls-secret
+  dnsNames:
+  - k8s-dashboard.hung.org.hk
+  issuerRef:
+    name: selfsigned-issuer
+    kind: Issuer
+---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: k8s-dashboard
   namespace: kubernetes-dashboard
 spec:
+  tls:
+  - hosts:
+    - k8s-dashboard.hung.org.hk
+    secretName: k8s-dashboard-tls-secret
   rules:
   - host: k8s-dashboard.hung.org.hk
     http:
