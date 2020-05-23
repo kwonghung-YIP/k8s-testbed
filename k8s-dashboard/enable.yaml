@@ -43,6 +43,11 @@ kind: Ingress
 metadata:
   name: k8s-dashboard
   namespace: kubernetes-dashboard
+  annotations:
+    ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.org/ssl-backends: "kubernetes-dashboard"
+    kubernetes.io/ingress.allow-http: "false"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   tls:
   - hosts:
