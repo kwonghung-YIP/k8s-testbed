@@ -22,6 +22,15 @@ spec:
         env:
         - name: spring_profiles_active
           value: "k8s"
+      volumes:
+      - name: ssl-keystore
+        secret:
+          secretName: my-ca-keypair
+          items:
+          - key: tls.key
+            path: my-rootCA.key
+          - key: tls.crt
+            path: my-rootCA.crt  
 ---
 apiVersion: v1
 kind: Service
