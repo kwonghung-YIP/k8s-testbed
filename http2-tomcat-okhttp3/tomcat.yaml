@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: springboot
-        image: kwonghung/kwonghung/spring-tomcat-http2:latest
+        image: kwonghung/spring-tomcat-http2:latest
         ports:
         - containerPort: 8080
         env:
