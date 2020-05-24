@@ -11,10 +11,9 @@ openssl req -verbose -x509 -new \
 
 openssl x509 -in my-rootCA.crt -text -noout
 
-kubectl create secret
-
 kubectl create secret \
   tls my-ca-keypair \
   --key=./my-rootCA.key \
-  --cert=./my-rootCA.crt \
-  --dry-run=true --output=yaml
+  --cert=./my-rootCA.crt
+  
+#  --dry-run=true --output=yaml
