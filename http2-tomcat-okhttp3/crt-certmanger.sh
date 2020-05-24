@@ -10,7 +10,7 @@ openssl x509 -in my-rootCA.crt -text -noout
 kubectl create secret
 
 kubectl create secret \
-  generic my-ca-keypair \
+  tls my-ca-keypair \
   --key=./my-rootCA.key \
   --cert=./my-rootCA.crt \
   --dry-run=true --output=yaml
