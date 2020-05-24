@@ -6,3 +6,16 @@ metadata:
 spec:
   ca:
     secretName: my-ca-keypair
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: tomcat-cert
+  namespace: default
+spec:
+  secretName: tomcat-secret
+  dnsNames:
+  - tomcat-http2.hung.org.hk
+  issuerRef:
+    name: my-ca-issuer
+    kind: Issuer    
