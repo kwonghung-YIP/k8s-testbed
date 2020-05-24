@@ -17,3 +17,5 @@ kubectl create secret \
   --cert=./my-rootCA.crt
   
 #  --dry-run=true --output=yaml
+
+kubectl apply -f cert-manager.yaml
