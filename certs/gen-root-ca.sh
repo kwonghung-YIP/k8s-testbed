@@ -12,3 +12,5 @@ kubectl create secret \
   --from-file=my-rootCA-key=./my-rootCA.key \
   --from-file=my-rootCA-crt=./my-rootCA.crt \
   --from-literal=my-rootCA-key-cred=abcd1234
+
+kubectl apply -f cert-manager.yaml
