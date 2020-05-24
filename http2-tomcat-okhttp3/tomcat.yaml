@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat-http2
+  labels:
+    app: tomcat-http2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tomcat-http2
+  template:
+    metadata:
+      labels:
+        app: tomcat-http2
+    spec:
+      containers:
+      - name: springboot
+        image: kwonghung/kwonghung/spring-tomcat-http2:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: spring_profiles_active
+          value: "k8s"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tomcat-http2
+  labels:
+    app: tomcat-http2
+spec:
+  selector:
+    app: tomcat-http2
+  ports:
+  - name: https
+    protocol: TCP
+    port: 443
+    targetPort: 8080
