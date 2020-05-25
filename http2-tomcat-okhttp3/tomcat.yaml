@@ -27,7 +27,7 @@ spec:
         image: openjdk:11-slim
         command:
         - ls -tlr /usr/local/certs
-        volumneMounts:
+        volumeMounts:
         - name: keystore
           mountPath: /usr/local/certs/keystore
         - name: tls-secret
