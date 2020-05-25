@@ -26,9 +26,9 @@ spec:
       - name: gen-jks-keystore
         image: openjdk:11-slim
         command:
-        - ls 
-        - "-tlr"
-        - "/usr/local/certs"
+        - keytool 
+        - "-import"
+        - "/usr/local/certs/tls/"
         volumeMounts:
         - name: keystore
           mountPath: /usr/local/certs/keystore
@@ -42,9 +42,9 @@ spec:
           secretName: tomcat-secret
           items:
           - key: tls.key
-            path: my-rootCA.key
+            path: my-tls.key
           - key: tls.crt
-            path: my-rootCA.crt  
+            path: my-tls.crt  
 ---
 apiVersion: v1
 kind: Service
