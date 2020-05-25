@@ -22,10 +22,22 @@ spec:
         env:
         - name: spring_profiles_active
           value: "k8s"
+      initContainers:
+      - name: gen-jks-keystore
+        image: openjdk:11-slim
+        command:
+        - ls -tlr /usr/local/certs
+        volumneMounts:
+        - name: keystore
+          mountPath: /usr/local/certs/keystore
+        - name: tls-secret
+          mountPath: /usr/local/certs/tls
       volumes:
-      - name: ssl-keystore
+      - name: keystore
+        emptyDir: {}
+      - name: tls-secret
         secret:
-          secretName: my-ca-keypair
+          secretName: tomcat-secret
           items:
           - key: tls.key
             path: my-rootCA.key
