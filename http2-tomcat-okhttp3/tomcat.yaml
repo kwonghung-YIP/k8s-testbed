@@ -26,7 +26,10 @@ spec:
       - name: openssl
         image: frapsoft/openssl:latest
         workingDir: /usr/local/certs/tls
-        args: 
+        command:
+        - /bin/sh
+        - "-c"
+        - openssl
         - pkcs12 
         - "-export"
         - "-out"
