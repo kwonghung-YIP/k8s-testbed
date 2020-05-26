@@ -30,17 +30,17 @@ spec:
         - pkcs12 
         - "-export"
         - "-out"
-        - ../keystore/keystore.p12
+        - /usr/local/certs/keystore/keystore.p12
         - "-passout"
         - "pass:abcd1234"
         - "-inkey"
-        - tls.key 
+        - /usr/local/certs/tls/tls.key 
         - "-name"
         - tomcat 
         - "-certfile"
-        - tls.crt
+        - /usr/local/certs/tls/tls.crt
         - "-CAfile"
-        - ca.crt
+        - /usr/local/certs/tls/ca.crt
         volumeMounts:
         - name: keystore
           mountPath: /usr/local/certs/keystore
