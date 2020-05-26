@@ -30,7 +30,7 @@ spec:
         - pkcs12 
         - "-export"
         - "-out"
-        - keystore.p12
+        - ../keystore/keystore.p12
         - "-passout"
         - "pass:abcd1234"
         - "-inkey"
