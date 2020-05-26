@@ -23,12 +23,12 @@ spec:
         - name: spring_profiles_active
           value: "k8s"
       initContainers:
-      - name: gen-jks-keystore
-        image: openjdk:11-slim
+      - name: openssl
+        image: frapsoft/openssl:latest
         command:
-        - keytool 
-        - "-import"
-        - "/usr/local/certs/tls/"
+        - ls
+        - "-ltrR"
+        - "/usr/local/certs"
         volumeMounts:
         - name: keystore
           mountPath: /usr/local/certs/keystore
