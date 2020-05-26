@@ -22,6 +22,9 @@ spec:
         env:
         - name: spring_profiles_active
           value: "k8s"
+        volumeMounts:
+        - name: keystore
+          mountPath: /usr/local/springboot/keystore 
       initContainers:
       - name: openssl
         image: frapsoft/openssl:latest
