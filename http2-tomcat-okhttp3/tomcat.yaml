@@ -25,6 +25,7 @@ spec:
       initContainers:
       - name: openssl
         image: frapsoft/openssl:latest
+        workingDir: /usr/local/certs/tls
         command:
         - ls
         - "-ltrR"
