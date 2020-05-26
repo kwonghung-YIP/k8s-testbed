@@ -26,10 +26,10 @@ spec:
       - name: openssl
         image: frapsoft/openssl:latest
         workingDir: /usr/local/certs/tls
-        command:
-        - ls
-        - "-ltrR"
-        - "/usr/local/certs"
+        args:
+        - "pkcs12 -export"
+        - "-out ../keystore/tomcat-keystore.p12 -passout pass:abcd1234"
+        - "-inkey tls.key --name tomcat -in tls.crt -certfile ca.crt"
         volumeMounts:
         - name: keystore
           mountPath: /usr/local/certs/keystore
