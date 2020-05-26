@@ -29,7 +29,10 @@ spec:
         args: 
         - pkcs12 
         - "-export"
-        - "-noout"
+        - "-out"
+        - keystore.p12
+        - "-passout"
+        - "pass:abcd1234"
         - "-inkey"
         - tls.key 
         - "-name"
