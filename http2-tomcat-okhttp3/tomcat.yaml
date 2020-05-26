@@ -40,11 +40,6 @@ spec:
       - name: tls-secret
         secret:
           secretName: tomcat-secret
-          items:
-          - key: tls.key
-            path: my-tls.key
-          - key: tls.crt
-            path: my-tls.crt  
 ---
 apiVersion: v1
 kind: Service
