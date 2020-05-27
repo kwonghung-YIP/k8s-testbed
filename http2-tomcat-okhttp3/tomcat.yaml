@@ -30,9 +30,6 @@ spec:
         image: frapsoft/openssl:latest
         workingDir: /usr/local/certs/tls
         command:
-        - /bin/sh
-        - "-c"
-        - openssl
         - pkcs12 
         - "-export"
         - "-out"
@@ -43,7 +40,7 @@ spec:
         - /usr/local/certs/tls/tls.key 
         - "-name"
         - tomcat 
-        - "-certfile"
+        - "-in"
         - /usr/local/certs/tls/tls.crt
         - "-CAfile"
         - /usr/local/certs/tls/ca.crt
