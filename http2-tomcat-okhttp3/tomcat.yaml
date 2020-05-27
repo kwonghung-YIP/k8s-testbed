@@ -74,3 +74,20 @@ spec:
     protocol: TCP
     port: 443
     targetPort: 8080
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: spring-http2-ingress
+spec:
+  tls:
+  - hosts:
+    - tomcat-http2.hung.org.hk
+    secretName: tomcat-ingress-secret
+  rules:
+  - host: tomcat-http2.hung.org.hk
+    http:
+      paths:
+      - backend:
+          serviceName: springboot-http2
+          servicePort: http
