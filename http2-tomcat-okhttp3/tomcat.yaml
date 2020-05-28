@@ -89,5 +89,5 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: springboot-http2
-          servicePort: http
+          serviceName: tomcat-http2
+          servicePort: https
