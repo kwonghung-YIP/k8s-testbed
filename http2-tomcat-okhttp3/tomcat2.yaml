@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat-http2
+  labels:
+    app: tomcat-http2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tomcat-http2
+  template:
+    metadata:
+      labels:
+        app: tomcat-http2
+    spec:
+      containers:
+      - name: springboot
+        image: kwonghung/spring-tomcat-http2:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: spring_profiles_active
+          value: "k8s"
+        volumeMounts:
+        - name: keystore-secret
+          mountPath: /usr/local/springboot/keystore 
+      volumes:
+      - name: keystore-secret
+        secret:
+          secretName: tomcat-jks-store
+          items:
+          - key: keystore.p12
+            path: tomcat-keystore.p12
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tomcat-http2
+  labels:
+    app: tomcat-http2
+spec:
+  selector:
+    app: tomcat-http2
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 8080
+  - name: https
+    protocol: TCP
+    port: 443
+    targetPort: 8080
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: spring-http2-ingress
+  namespace: default
+  annotations:
+    ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.org/ssl-backends: "tomcat-http2"
+    kubernetes.io/ingress.allow-http: "false"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"  
+spec:
+  tls:
+  - hosts:
+    - tomcat-http2.hung.org.hk
+    secretName: tomcat-ingress-secret
+  rules:
+  - host: tomcat-http2.hung.org.hk
+    http:
+      paths:
+      - backend:
+          serviceName: tomcat-http2
+          servicePort: https
