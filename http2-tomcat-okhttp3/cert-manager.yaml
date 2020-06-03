@@ -32,6 +32,12 @@ metadata:
   namespace: default
 spec:
   secretName: tomcat-ingress-secret
+  subject:
+    countries: HK
+    organizationUnits: Fun Fund Fair
+  usages:
+  - digital signature
+  - key encipherment
   dnsNames:
   - tomcat-http2.hung.org.hk
   issuerRef:
