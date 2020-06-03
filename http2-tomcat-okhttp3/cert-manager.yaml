@@ -43,7 +43,7 @@ spec:
   usages:
   - digital signature
   - key encipherment
-  keySize: 1024
+  keySize: 4096
   dnsNames:
   - tomcat-http2.hung.org.hk
   issuerRef:
