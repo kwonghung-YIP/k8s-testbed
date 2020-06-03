@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: okhttp3-client
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+      - name :
+        image: nicolaka/netshoot
+        command: ["curl", "-v", "-k" "https://tomcat-http2/echo"]
+      restartPolicy: Never
+       
