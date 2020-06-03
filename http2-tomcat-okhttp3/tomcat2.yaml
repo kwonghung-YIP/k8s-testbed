@@ -22,6 +22,8 @@ spec:
         env:
         - name: spring_profiles_active
           value: "k8s"
+        - name: JAVA_OPTS
+          value: "-Djava.net.debug=ssl:keymanager,trustmanager,handshake"
         volumeMounts:
         - name: keystore-secret
           mountPath: /usr/local/springboot/keystore 
@@ -32,6 +34,8 @@ spec:
           items:
           - key: keystore.p12
             path: tomcat-keystore.p12
+          - key: truststore.jks
+            path: tomcat-truststore.jks
 ---
 apiVersion: v1
 kind: Service
