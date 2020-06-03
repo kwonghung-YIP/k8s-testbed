@@ -35,7 +35,10 @@ spec:
   subject:
     countries:
     - HK
-    organizationUnits: Fun Fund Fair
+    provinces:
+    - Hong Kong
+    organizationalUnits:
+    - Fun Fund Fair
   usages:
   - digital signature
   - key encipherment
