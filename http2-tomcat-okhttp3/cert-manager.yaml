@@ -32,6 +32,7 @@ metadata:
   namespace: default
 spec:
   secretName: tomcat-ingress-secret
+  commonName: my-tomcat-http2
   subject:
     countries:
     - HK
@@ -42,6 +43,7 @@ spec:
   usages:
   - digital signature
   - key encipherment
+  keySize: 1024
   dnsNames:
   - tomcat-http2.hung.org.hk
   issuerRef:
