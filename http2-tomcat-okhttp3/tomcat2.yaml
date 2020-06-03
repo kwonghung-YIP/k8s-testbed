@@ -31,7 +31,7 @@ spec:
           secretName: tomcat-jks-store
           items:
           - key: keystore.p12
-            path: tomcat-keystore.p12
+            path: keystore.p12
 ---
 apiVersion: v1
 kind: Service
