@@ -23,7 +23,7 @@ spec:
         - name: spring_profiles_active
           value: "k8s"
         - name: JAVA_OPTS
-          value: "-Djava.net.debug=ssl:keymanager,trustmanager,handshake"
+          value: "-Djavax.net.debug=ssl:keymanager,trustmanager,handshake"
         volumeMounts:
         - name: keystore-secret
           mountPath: /usr/local/springboot/keystore 
