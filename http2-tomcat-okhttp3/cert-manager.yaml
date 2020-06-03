@@ -50,6 +50,16 @@ spec:
     name: my-ca-issuer
     kind: Issuer
 ---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: keystore-passwd
+  namespace: default
+type: Opaque
+stringData:
+  jks-keystore-passwd: abcd1234
+  p12-keystore-passwd: abcd1234
+---
 apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
