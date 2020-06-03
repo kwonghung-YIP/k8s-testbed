@@ -28,7 +28,7 @@ spec:
       volumes:
       - name: keystore-secret
         secret:
-          secretName: tomcat-jks-store
+          secretName: tomcat-jks-keystore
           items:
           - key: keystore.p12
             path: keystore.p12
