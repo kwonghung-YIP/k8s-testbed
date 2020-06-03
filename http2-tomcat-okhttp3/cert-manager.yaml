@@ -33,7 +33,8 @@ metadata:
 spec:
   secretName: tomcat-ingress-secret
   subject:
-    countries: HK
+    countries:
+    - HK
     organizationUnits: Fun Fund Fair
   usages:
   - digital signature
