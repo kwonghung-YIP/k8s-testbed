@@ -22,7 +22,7 @@ spec:
         env:
         - name: spring_profiles_active
           value: "k8s"
-        - name: JAVA_OPTS
+        - name: JAVA_OPTS2
           value: "-Djavax.net.debug=ssl:keymanager,trustmanager,handshake"
         volumeMounts:
         - name: keystore-secret
