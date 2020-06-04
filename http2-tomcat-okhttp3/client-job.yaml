@@ -9,6 +9,6 @@ spec:
       containers:
       - name : okhttp3-client
         image: nicolaka/netshoot
-        command: ["curl", "-v", "-k" "https://tomcat-http2/echo"]
+        command: ["curl", "-v", "-k", "https://tomcat-http2/echo"]
       restartPolicy: Never
        
