@@ -21,7 +21,7 @@ spec:
         - containerPort: 8080
         env:
         - name: spring_profiles_active
-          value: "k8s"
+          value: "cert-manager"
         - name: JAVA_OPTS2
           value: "-Djavax.net.debug=ssl:keymanager,trustmanager,handshake"
         volumeMounts:
@@ -61,12 +61,6 @@ kind: Ingress
 metadata:
   name: spring-http2-ingress
   namespace: default
-  annotations:
-    ingress.kubernetes.io/ssl-passthrough: "true"
-    nginx.org/ssl-backends: "tomcat-http2"
-    kubernetes.io/ingress.allow-http: "false"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-    nginx.ingress.kubernetes.io/auth-tls-secret: tomcat-ingress-secret
 spec:
   tls:
   - hosts:
