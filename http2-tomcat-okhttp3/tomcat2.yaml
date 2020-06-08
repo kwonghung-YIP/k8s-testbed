@@ -72,4 +72,4 @@ spec:
       paths:
       - backend:
           serviceName: tomcat-http2
-          servicePort: https
+          servicePort: http
