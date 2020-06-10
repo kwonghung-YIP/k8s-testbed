@@ -1,0 +1,11 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: tomcat-http2
+spec:
+  host: tomcat-http2
+  subsets:
+  - name: v1
+    labels:
+      app: tomcat-http2
+      version: "1.0"
