@@ -7,10 +7,10 @@ spec:
   hosts:
   - "tomcat-http2.hung.org.hk"
   gateways:
-  - nginx-gateway  
+  - tomcat-http2  
   http:
   - route:
     - destination:
         host: tomcat-http2
-        subset: v117
+        subset: v1
       weight: 100
