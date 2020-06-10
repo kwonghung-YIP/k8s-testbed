@@ -6,6 +6,7 @@ metadata:
 spec:
   hosts:
   - abc
+  - def.default.svc.cluster.local
   - tomcat-http2.hung.org.hk
   gateways:
   - tomcat-http2  
