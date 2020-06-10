@@ -13,6 +13,6 @@ spec:
   http:
   - route:
     - destination:
-        host: tomcat-http2
+        host: tomcat-http2-vs
         subset: v1
       weight: 100
