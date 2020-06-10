@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat-http2
+  labels:
+    app: tomcat-http2
+    version: "1.0"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tomcat-http2
+      version: "1.0"
+  template:
+    metadata:
+      labels:
+        app: tomcat-http2
+        version: "1.0"
+    spec:
+      containers:
+      - name: springboot
+        image: kwonghung/spring-tomcat-http2:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: spring_profiles_active
+          value: "cert-manager"
+        - name: JAVA_OPTS
+          value: "-Djavax.net.debug=ssl:keymanager,trustmanager,handshake"
+      volumes:
+      - name: keystore-secret
+        secret:
+          secretName: tomcat-jks-keystore
+          items:
+          - key: keystore.p12
+            path: tomcat-keystore.p12
+          - key: truststore.jks
+            path: tomcat-truststore.jks
