@@ -5,8 +5,8 @@ metadata:
   name: tomcat-http2-vs
 spec:
   hosts:
-  - "tomcat-http2-vir-svc"
-  - "tomcat-http2.hung.org.hk"
+  - abc
+  - tomcat-http2.hung.org.hk
   gateways:
   - tomcat-http2  
   http:
