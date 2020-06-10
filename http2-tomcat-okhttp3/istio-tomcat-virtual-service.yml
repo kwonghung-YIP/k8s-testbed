@@ -1,0 +1,16 @@
+  
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: tomcat-http2
+spec:
+  hosts:
+  - "tomcat-http2.hung.org.hk"
+  gateways:
+  - nginx-gateway  
+  http:
+  - route:
+    - destination:
+        host: tomcat-http2
+        subset: v117
+      weight: 100
