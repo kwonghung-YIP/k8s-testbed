@@ -3,7 +3,7 @@ kind: DestinationRule
 metadata:
   name: tomcat-http2
 spec:
-  host: tomcat-http2-vs
+  host: tomcat-http2
   subsets:
   - name: v1
     labels:
