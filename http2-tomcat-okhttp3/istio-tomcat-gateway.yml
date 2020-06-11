@@ -11,4 +11,13 @@ spec:
       number: 80
       protocol: HTTP
     hosts:
-    - "*.hung.org.hk"
+    - *.hung.org.hk
+  - port:
+      name: https
+      number: 443
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      credentialName: tomcat-secret
+    hosts:
+    - *.hung.org.hk
