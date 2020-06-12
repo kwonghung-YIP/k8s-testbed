@@ -17,4 +17,4 @@ kubectl create secret \
   --key=./istio-my-rootCA2.key \
   --cert=./istio-my-rootCA2.crt
 
-kubectl apply -f istio-tomcat-cert-manager.yaml
+kubectl apply -f istio-tomcat-cert-manager.yml
