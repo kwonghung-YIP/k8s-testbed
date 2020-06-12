@@ -1,0 +1,27 @@
+
+apiVersion: cert-manager.io/v1alpha2
+kind: Issuer
+metadata:
+  name: my-ca-issuer
+  namespace: istio-system
+spec:
+  ca:
+    secretName: my-ca-keypair
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: tomcat-cert
+  namespace: istio-system
+spec:
+  secretName: tomcat-secret
+  duration: 120h
+  renewBefore: 24h
+  organization:
+  - Funny Firm
+  dnsNames:
+  - tomcat-http2.hung.org.hk
+  - hello.com
+  issuerRef:
+    name: my-ca-issuer
+    kind: Issuer  
