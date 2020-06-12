@@ -13,7 +13,7 @@ openssl x509 -in istio-my-rootCA2.crt -text -noout
 
 kubectl create secret \
   tls my-rootCA \
-  --name-space=istio-system
+  --name-space=istio-system \
   --key=./istio-my-rootCA2.key \
   --cert=./istio-my-rootCA2.crt
 
