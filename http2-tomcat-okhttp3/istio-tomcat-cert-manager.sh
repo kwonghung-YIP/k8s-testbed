@@ -6,7 +6,7 @@ openssl rsa -in istio-my-rootCA.key --passin pass:abcd1234 -out istio-my-rootCA2
 
 openssl req -verbose -x509 -new \
   -key istio-my-rootCA2.key --passin pass:abcd1234 \
-  -nodes -sha256 -days 30 -config my-rootCA.config \
+  -nodes -sha256 -days 30 -config istio-tomcat-my-rootCA.config \
   -out istio-my-rootCA2.crt
 
 openssl x509 -in istio-my-rootCA2.crt -text -noout
