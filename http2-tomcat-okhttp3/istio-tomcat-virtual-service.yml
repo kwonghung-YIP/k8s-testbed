@@ -22,6 +22,6 @@ spec:
     route:
     - destination:
         host: tomcat-http2
-        subnet: v1
+        subset: v1
       weight: 100
       
