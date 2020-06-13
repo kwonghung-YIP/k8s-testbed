@@ -14,3 +14,14 @@ spec:
         host: tomcat-http2
         subset: v1
       weight: 100
+  tls:
+  - match:
+    - port: 443
+      sniHosts:
+      - tomcat-http2
+    route:
+    - destination:
+        host: tomcat-http2
+        subnet: v1
+      weight: 100
+      
