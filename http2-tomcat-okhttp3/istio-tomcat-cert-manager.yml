@@ -16,6 +16,12 @@ spec:
   secretName: tomcat-secret
   duration: 120h
   renewBefore: 24h
+  isCA: false
+  usages:
+  - digital signature
+  - key encipherment
+  - server auth
+  - client auth
   organization:
   - Funny Firm
   dnsNames:
