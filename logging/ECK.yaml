@@ -22,7 +22,14 @@ spec:
               cpu: 8
             limits:
               memory: 4Gi
-        volumes:
-        - name: elasticssearch-data
-          emptyDir: {}
+    volumeClaimTemplates:
+    - metadata:
+        name: elasticsearch-data
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 2Gi
+        storageClassName: manual
 
