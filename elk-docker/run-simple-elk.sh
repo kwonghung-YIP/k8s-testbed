@@ -1,3 +1,9 @@
+#!/bin/bash
+
+docker rm -f logstash
+docker rm -f kibana
+docker rm -f elasticsearch
+
 docker run --name elasticsearch \
   -d --restart=unless-stopped \
   -p 9200:9200 -p 9300:9300 \
