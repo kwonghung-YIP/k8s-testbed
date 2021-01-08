@@ -19,5 +19,5 @@ docker run --name kibana \
 docker run --name logstash \
   -d --restart=unless-stopped \
   --link elasticsearch:elasticsearch \
-  -p 9600:9600 \
+  -p 9600:9600 -p 5044:5044\
   docker.elastic.co/logstash/logstash:7.10.1 
