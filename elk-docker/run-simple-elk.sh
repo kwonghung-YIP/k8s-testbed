@@ -20,7 +20,7 @@ docker run --name kibana \
 docker run --name logstash \
   -d --restart=unless-stopped \
   --link elasticsearch:elasticsearch \
-  --volume="$(pwd)/logstash.yml:/usr/share/logstash/config/logstash.yml:ro" \
+  --volume="$(pwd)/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro" \
   -p 9600:9600 -p 5044:5044 \
   docker.elastic.co/logstash/logstash:7.10.1
 
