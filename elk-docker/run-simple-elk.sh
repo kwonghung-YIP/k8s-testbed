@@ -24,7 +24,7 @@ docker run --name logstash \
   -p 9600:9600 -p 5044:5044\
   docker.elastic.co/logstash/logstash:7.10.1 
 
-docker run --name=filebeat \
+docker run --name filebeat \
   -d --restart=unless-stopped \
   --user=root \
   --volume="$(pwd)/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro" \
