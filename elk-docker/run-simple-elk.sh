@@ -21,8 +21,8 @@ docker run --name logstash \
   -d --restart=unless-stopped \
   --link elasticsearch:elasticsearch \
   --volume="$(pwd)/logstash.yml:/usr/share/logstash/config/logstash.yml:ro" \
-  -p 9600:9600 -p 5044:5044\
-  docker.elastic.co/logstash/logstash:7.10.1 
+  -p 9600:9600 -p 5044:5044 \
+  docker.elastic.co/logstash/logstash:7.10.1
 
 docker run --name filebeat \
   -d --restart=unless-stopped \
