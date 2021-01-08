@@ -1,5 +1,6 @@
 #!/bin/bash
 
+docker rm -f filebeat
 docker rm -f logstash
 docker rm -f kibana
 docker rm -f elasticsearch
