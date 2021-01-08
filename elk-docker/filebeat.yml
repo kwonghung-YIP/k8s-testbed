@@ -7,6 +7,10 @@ filebeat.autodiscover:
   providers:
     - type: docker
       hints.enabled: true
+      templates:
+        - condition:
+            contains:
+              docker.container.name: "core-oauth2-provider"
 
 processors:
 - add_cloud_metadata: ~
