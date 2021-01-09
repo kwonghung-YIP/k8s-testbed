@@ -6,11 +6,13 @@ filebeat.config:
 filebeat.autodiscover:
   providers:
   - type: docker
-    templates:
-    - config:
-      - type: container
-        paths:
-        - /var/lib/docker/containers/${data.docker.container.id}/*.log
+    hints.enabled: true
+    hints.default_config.enabled: false
+    #templates:
+    #- config:
+    #  - type: container
+    #    paths:
+    #    - /var/lib/docker/containers/${data.docker.container.id}/*.log
 
 processors:
 - add_cloud_metadata: ~
