@@ -7,10 +7,7 @@ filebeat.autodiscover:
   providers:
   - type: docker
     templates:
-    - condition:
-        contains:
-          docker.container.name: "core-oauth2-provider"
-      config:
+    - config:
       - type: container
         paths:
         - /var/lib/docker/containers/${data.docker.container.id}/*.log
