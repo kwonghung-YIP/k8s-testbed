@@ -33,3 +33,12 @@ docker run --name filebeat \
   --link logstash:logstash \
   docker.elastic.co/beats/filebeat:7.10.1 \
   filebeat -e -strict.perms=false
+
+docker run --name springboot-webapp \
+  -d --restart=always \
+  -p 8080:8080 -p 8090:8090 \
+  --label co.elastic.logs/enabled=true \
+  --label co.elastic.logs/multiline.pattern="^[0-9]{4}-[0-9]{2}-[0-9]{2}" \
+  --label co.elastic.logs/multiline.negate="true" \
+  --label co.elastic.logs/multiline.match="after" \
+  kwonghung/springboot-to-skaffold:latest
