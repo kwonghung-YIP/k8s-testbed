@@ -3,6 +3,9 @@ filebeat.config:
     path: ${path.config}/modules.d/*.yml
     reload.enabled: false
 
+filebeat.modules:
+- module:nginx
+
 filebeat.autodiscover:
   providers:
   - type: docker
