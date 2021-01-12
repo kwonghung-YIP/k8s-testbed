@@ -8,7 +8,7 @@ filebeat.modules:
   access:
     enabled: true
   error:
-    enabled: true
+    enabled: false
   ingress_controller:
     enabled: false
 
