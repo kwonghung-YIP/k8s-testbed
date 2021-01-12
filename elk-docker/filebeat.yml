@@ -5,6 +5,12 @@ filebeat.config:
 
 filebeat.modules:
 - module:nginx
+  access:
+    enabled: true
+  error:
+    enabled: true
+  ingress_controller:
+    enabled: false
 
 filebeat.autodiscover:
   providers:
