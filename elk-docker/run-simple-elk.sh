@@ -5,6 +5,9 @@ docker rm -f logstash
 docker rm -f kibana
 docker rm -f elasticsearch
 
+docker rm -f springboot-webapp
+docker rm -f nginx
+
 docker run --name elasticsearch \
   -d --restart=unless-stopped \
   -p 9200:9200 -p 9300:9300 \
@@ -42,3 +45,10 @@ docker run --name springboot-webapp \
   --label co.elastic.logs/multiline.negate="true" \
   --label co.elastic.logs/multiline.match="after" \
   kwonghung/springboot-to-skaffold:latest
+
+docker run --name nginx \
+  -d --restart=always \
+  -p 9080:80 -p 9443:443 \
+  --label co.elastic.logs/enabled=true \
+  --label co.elastic.logs/module=nginx \
+  nginx:1.18-alpine
