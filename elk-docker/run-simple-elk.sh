@@ -51,4 +51,6 @@ docker run --name nginx \
   -p 9080:80 -p 9443:443 \
   --label co.elastic.logs/enabled=true \
   --label co.elastic.logs/module=nginx \
+  --label co.elastic.logs/fileset.stdout=access \
+  --label co.elastic.logs/fileset.stderr=error \
   nginx:1.18-alpine
