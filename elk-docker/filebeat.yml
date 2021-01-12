@@ -4,7 +4,7 @@ filebeat.config:
     reload.enabled: false
 
 filebeat.modules:
-- module:nginx
+- module: nginx
   access:
     enabled: true
   error:
