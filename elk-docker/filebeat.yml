@@ -22,7 +22,8 @@ filebeat.autodiscover:
         contains:
           docker.container.name: nginx
       config:
-      - module: nginx
+      - type: container
+        module: nginx
         access:
           enabled: true
           var.paths: ["/var/lib/docker/containers/${data.docker.container.id}/*.log"]
