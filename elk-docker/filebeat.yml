@@ -17,16 +17,31 @@ filebeat.modules:
 filebeat.autodiscover:
   providers:
   - type: docker
-    hints.enabled: true
-    hints.default_config.enabled: false
+    templates:
+    - condition:
+        contains:
+          docker.container.name: nginx
+      config:
+      - module: nginx
+        access:
+          enabled: true
+          var.paths: ["/var/lib/docker/containers/${data.docker.container.id}/*.log"]
+        error:
+          enabled: true
+          var.paths: ["/var/lib/docker/containers/${data.docker.container.id}/*.log"]
+        ingress_controller:
+          enabled: false
+
+    #hints.enabled: true
+    #hints.default_config.enabled: false
     #templates:
     #- config:
     #  - type: container
     #    paths:
     #    - /var/lib/docker/containers/${data.docker.container.id}/*.log
-    multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
-    multiline.negate: true
-    multiline.match: after
+    #multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+    #multiline.negate: true
+    #multiline.match: after
 
 processors:
 - add_cloud_metadata: ~
