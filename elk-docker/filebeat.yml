@@ -1,3 +1,5 @@
+logging.level: debug
+
 filebeat.config:
   modules:
     path: ${path.config}/modules.d/*.yml
