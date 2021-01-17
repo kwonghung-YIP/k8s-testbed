@@ -1,0 +1,48 @@
+sudo docker run --name filebeat \
+  -it --rm   --user=root \
+  --volume="/var/lib/docker/containers:/var/lib/docker/containers:ro" \
+  --volume="/var/run/docker.sock:/var/run/docker.sock:ro" \
+  --link filebeat-nginx_elasticsearch_1:elasticsearch \
+  --link filebeat-nginx_kibana_1:kibana \
+  --network filebeat-nginx_default \
+  docker.elastic.co/beats/filebeat:7.10.1 \
+  /bin/bash
+  filebeat -e -strict.perms=false
+
+--volume="$(pwd)/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro" \
+
+
+filebeat modules enable nginx
+
+filebeat setup \
+  --pipelines --modules nginx \
+  -E setup.kibana.host=kibana:5601
+
+filebeat setup -e \
+  -E setup.kibana.host=kibana:5601 \
+  -E output.elasticsearch.hosts=["elasticsearch:9200"]
+
+logging.level: debug
+
+filebeat.config:
+  modules:
+    path: ${path.config}/modules.d/*.yml
+    reload.enabled: false
+
+filebeat.autodiscover:
+  providers:
+  - type: docker
+    hints.enabled: true
+    hints.default_config.enabled: false
+
+processors:
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+
+output.console:
+  pretty: true
+
+#output.elasticsearch:
+#  hosts: '${ELASTICSEARCH_HOSTS:elasticsearch:9200}'
+#  username: '${ELASTICSEARCH_USERNAME:}'
+#  password: '${ELASTICSEARCH_PASSWORD:}'
