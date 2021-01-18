@@ -30,6 +30,8 @@ services:
     ports:
     - "9080:80"
     #- "9443:443"
+    volumes:
+    - "./nginx-springboot-webapp.conf:/etc/nginx/conf.d/springboot-webapp.conf"
     labels:
     - "co.elastic.logs/enabled=true"
     - "co.elastic.logs/module=nginx"
