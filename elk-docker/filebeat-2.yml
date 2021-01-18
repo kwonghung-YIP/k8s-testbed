@@ -31,17 +31,18 @@ processors:
 
 setup.ilm:
   enabled: true
+  rollover_alias: 'filebeat-%{[event.module]}-%{[event.type]}'
   overwrite: true
 
-setup.template:
-  name: 'filebeat'
-  pattern: 'filebeat-*'
+#setup.template:
+#  name: 'filebeat'
+#  pattern: 'filebeat-*'
 
 #output.console:
 #  pretty: true
 
 output.elasticsearch:
-  index: 'filebeat-%{[event.module]}-%{[event.type]}-%{+yyyy.MM.dd}'
+  #index: 'filebeat-%{[event.module]}-%{[event.type]}-%{+yyyy.MM.dd}'
   hosts: '${ELASTICSEARCH_HOSTS:elasticsearch:9200}'
   username: '${ELASTICSEARCH_USERNAME:}'
   password: '${ELASTICSEARCH_PASSWORD:}'
