@@ -29,13 +29,16 @@ processors:
   - add_cloud_metadata: ~
   - add_docker_metadata: ~
 
-#output.console:
-#  pretty: true
+setup.ilm:
+  enabled: false
 
 setup.template:
   name: 'filebeat'
   pattern: 'filebeat-*'
-  
+
+#output.console:
+#  pretty: true
+
 output.elasticsearch:
   index: 'filebeat-%{[event.module]}-%{[event.type]}-%{+yyyy.MM.dd}'
   hosts: '${ELASTICSEARCH_HOSTS:elasticsearch:9200}'
