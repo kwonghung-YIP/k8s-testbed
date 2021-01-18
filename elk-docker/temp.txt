@@ -21,3 +21,8 @@ filebeat setup -e --strict.perms=false \
   -E output.elasticsearch.hosts=["elasticsearch:9200"]
 
 filebeat -e --strict.perms=false
+
+
+watch -n 1 curl -v -H "Host: springboot-webapp.hung.org.hk" http://<docker-host>:9080/ping
+
+watch -n 1 curl -v -H "Host: springboot-webapp.hung.org.hk" --user john:passw0rd http://intdockerd23:9080/greeting
