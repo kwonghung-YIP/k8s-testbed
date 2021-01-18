@@ -31,7 +31,7 @@ processors:
 
 setup.ilm:
   enabled: true
-  rollover_alias: 'filebeat-%{[event.module]}-%{[event.type]}'
+  rollover_alias: "filebeat-%{[event.module]}-%{[event.type]}"
   overwrite: true
 
 #setup.template:
