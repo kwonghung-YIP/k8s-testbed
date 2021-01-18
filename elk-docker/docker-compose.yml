@@ -48,14 +48,14 @@ services:
     - "co.elastic.logs/multiline.negate=true"
     - "co.elastic.logs/multiline.match=after"
 
-  #portainer:
-  #  image: portainer/portainer-ce
-  #  ports:
-  #  - "9000:9000"
-  #  volumes:
-  #  - portainer_data:/data
-  #  - "/var/run/docker.sock:/var/run/docker.sock"
-  #  restart: always
+  portainer:
+    image: portainer/portainer-ce
+    ports:
+    - "9000:9000"
+    volumes:
+    - portainer_data:/data
+    - "/var/run/docker.sock:/var/run/docker.sock"
+    restart: always
       
 volumes:
   portainer_data:
