@@ -32,8 +32,12 @@ processors:
 #output.console:
 #  pretty: true
 
+setup.template:
+  name: 'filebeat'
+  pattern: 'filebeat-*'
+  
 output.elasticsearch:
-  index: '%{[event.module]}-%{[event.type]}-%{+yyyy.MM.dd}-%{index_num}'
+  index: 'filebeat-%{[event.module]}-%{[event.type]}-%{+yyyy.MM.dd}-%{index_num}'
   hosts: '${ELASTICSEARCH_HOSTS:elasticsearch:9200}'
   username: '${ELASTICSEARCH_USERNAME:}'
   password: '${ELASTICSEARCH_PASSWORD:}'
