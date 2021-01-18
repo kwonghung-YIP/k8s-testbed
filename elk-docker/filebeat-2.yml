@@ -30,13 +30,13 @@ processors:
   - add_docker_metadata: ~
 
 setup.ilm:
-  enabled: true
-  rollover_alias: "filebeat-%{[event.module]}-%{[event.type]}"
-  overwrite: true
+  enabled: false
+  #rollover_alias: "filebeat-%{[event.module]}-%{[event.type]}"
+  #overwrite: true
 
-#setup.template:
-#  name: 'filebeat'
-#  pattern: 'filebeat-*'
+setup.template:
+  name: 'filebeat3'
+  pattern: 'filebeat3-*'
 
 #output.console:
 #  pretty: true
@@ -46,3 +46,13 @@ output.elasticsearch:
   hosts: '${ELASTICSEARCH_HOSTS:elasticsearch:9200}'
   username: '${ELASTICSEARCH_USERNAME:}'
   password: '${ELASTICSEARCH_PASSWORD:}'
+  indices:
+  - index: "nginx-access-%{+yyyy.MM.dd}"
+    when.equals:
+      event.module: nginx
+      event.type: access
+  - index: "nginx-error-%{+yyyy.MM.dd}"
+    when.equals:
+      event.module: nginx
+      event.type: error
+
