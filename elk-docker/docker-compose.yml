@@ -31,7 +31,8 @@ services:
     - "9080:80"
     #- "9443:443"
     volumes:
-    - "./nginx-springboot-webapp.conf:/etc/nginx/conf.d/springboot-webapp.conf"
+    - "./nginx/nginx.conf:/etc/nginx/nginx.conf"
+    - "./nginx/springboot-webapp.conf:/etc/nginx/conf.d/springboot-webapp.conf"
     labels:
     - "co.elastic.logs/enabled=true"
     - "co.elastic.logs/module=nginx"
