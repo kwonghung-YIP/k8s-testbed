@@ -10,6 +10,20 @@ filebeat.autodiscover:
   - type: docker
     hints.enabled: true
     hints.default_config.enabled: false
+    templates:
+    - conditions:
+        contains:
+          docker.container.name: "springboot"
+      config:
+        field:
+          log_type: "springboot-app-log"
+    - conditions:
+        contains:
+          docker.container.name: "nginx"
+      config:
+        field:
+          log_type: "nginx-access-log"
+      
 
 processors:
   - add_cloud_metadata: ~
