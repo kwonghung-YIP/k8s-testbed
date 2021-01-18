@@ -14,13 +14,15 @@ services:
     
   nginx:
     image: nginx:1.18-alpine
+    restart: always
     ports:
     - "9080:80"
     #- "9443:443"
     labels:
     - "co.elastic.logs/enabled=true"
     - "co.elastic.logs/module=nginx"
-    restart: always
+    - "co.elastic.logs/fileset.stdout=access"
+    - "co.elastic.logs/fileset.stderr=error"
   
   #portainer:
   #  image: portainer/portainer-ce
