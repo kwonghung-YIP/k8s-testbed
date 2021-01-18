@@ -30,7 +30,8 @@ processors:
   - add_docker_metadata: ~
 
 setup.ilm:
-  enabled: false
+  enabled: true
+  overwrite: true
 
 setup.template:
   name: 'filebeat'
