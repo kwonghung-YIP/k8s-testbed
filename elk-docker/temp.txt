@@ -25,4 +25,4 @@ filebeat -e --strict.perms=false
 
 watch -n 1 curl -v -H "Host: springboot-webapp.hung.org.hk" http://<docker-host>:9080/ping
 
-watch -n 1 curl -v -H "Host: springboot-webapp.hung.org.hk" --user john:passw0rd http://intdockerd23:9080/greeting
+watch -n 1 curl -v -H "Host: springboot-webapp.hung.org.hk" --user john:passw0rd http://<docker-host>:9080/greeting
