@@ -35,8 +35,8 @@ setup.ilm:
   #overwrite: true
 
 setup.template:
-  name: 'filebeat3'
-  pattern: 'filebeat3-*'
+  name: 'filebeat'
+  pattern: 'filebeat-*'
 
 #output.console:
 #  pretty: true
