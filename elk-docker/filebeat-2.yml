@@ -47,15 +47,15 @@ output.elasticsearch:
   username: '${ELASTICSEARCH_USERNAME:}'
   password: '${ELASTICSEARCH_PASSWORD:}'
   indices:
-  - index: "filebeat-nginx-access-%{+yyyy.MM.dd}"
+  - index: "nginx-access-%{+yyyy.MM.dd}"
     when.and:
     - equals:
         event.module: nginx
     - equals:
-        event.type: access
-  - index: "filebeat-nginx-error-%{+yyyy.MM.dd}"
+        fileset.name: access
+  - index: "nginx-error-%{+yyyy.MM.dd}"
     when.and:
     - equals:
         event.module: nginx
     - equals:
-        event.type: error
+        fileset.name: error
