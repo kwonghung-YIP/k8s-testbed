@@ -48,11 +48,14 @@ output.elasticsearch:
   password: '${ELASTICSEARCH_PASSWORD:}'
   indices:
   - index: "nginx-access-%{+yyyy.MM.dd}"
-    when.equals:
-      event.module: nginx
-      event.type: access
+    when.and:
+      equals:
+        event.module: nginx
+      equals:
+        event.type: access
   - index: "nginx-error-%{+yyyy.MM.dd}"
-    when.equals:
-      event.module: nginx
-      event.type: error
-
+    when.and:
+      equals:
+        event.module: nginx
+      equals:
+        event.type: error
