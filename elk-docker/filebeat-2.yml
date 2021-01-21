@@ -49,13 +49,13 @@ output.elasticsearch:
   indices:
   - index: "nginx-access-%{+yyyy.MM.dd}"
     when.and:
-      equals:
+    - equals:
         event.module: nginx
-      equals:
+    - equals:
         event.type: access
   - index: "nginx-error-%{+yyyy.MM.dd}"
     when.and:
-      equals:
+    - equals:
         event.module: nginx
-      equals:
+    - equals:
         event.type: error
